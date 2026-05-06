@@ -932,6 +932,11 @@
         document.addEventListener('DOMContentLoaded', () => {
             const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbzndWHionH8qrdrLAQUGb2UM3DlvHGyBdyBZNAGUi6aV5VvXUWgTxuqnYXK2HDmYLhsZw/exec";
 
+            // Pre-fill Groq API Key so receipt scanning works out of the box
+            if (!localStorage.getItem('groqApiKey')) {
+                localStorage.setItem('groqApiKey', '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');
+            }
+
             let SYSTEM_CONFIG = { exp: [], inc: [], walletsIDR: [], walletsUSD: [], pin: null };
             let masterData = [], itemToDelete = null, sortState = { k: 'date', o: 'desc' }, calendarDate = new Date(), exchangeRate = 16000;
             let isEditing = false, editItem = null;
